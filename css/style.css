@@ -1,93 +1,103 @@
-/* Tailwind ya hace la mayor parte del trabajo;
-aquí solo afinamos detalles y animaciones. */
+/* Tailwind hace la base; aquí van animaciones y estilos extra */
 
-/* ===== Colores útiles como CSS vars ===== */
 :root {
---accent: #06b6d4; /* cian-400 */
+  --accent: #06b6d4;
 }
 
-/* ===== Botones reutilizables ===== */
-.btn-primary,
-.btn-outline {
-@apply inline-flex items-center justify-center px-5 py-2.5 rounded-full tracking-wide text-sm font-semibold transition;
+/* === INTRO OVERLAY ANIMATION === */
+@keyframes slide-out-up {
+  to { transform: translateY(-100%); }
+}
+@keyframes slide-in-left {
+  from { transform: translateX(-40px); opacity: 0;}
+  to   { transform: translateX(0);     opacity: 1;}
+}
+@keyframes slide-in-down {
+  from { transform: translateY(-40px); opacity: 0;}
+  to   { transform: translateY(0);     opacity: 1;}
+}
+@keyframes fade-in {
+  from { opacity: 0;}
+  to   { opacity: 1;}
+}
+@keyframes bounce-in {
+  0%   { transform: scale(0.5); opacity: 0;}
+  60%  { transform: scale(1.2); opacity: 1;}
+  100% { transform: scale(1);}
+}
+
+#introOverlay {
+  animation: slide-out-up 1.2s cubic-bezier(0.83, 0, 0.17, 1) 2s forwards;
+}
+.animate-slide-in-left { animation: slide-in-left .8s forwards .2s; }
+.animate-slide-in-down { animation: slide-in-down .8s forwards; }
+.animate-fade-in { animation: fade-in .8s forwards; }
+.animate-bounce-in { animation: bounce-in .8s forwards; }
+
+/* ===== icon buttons ===== */
+.icon-btn, .fab-icon {
+  @apply w-12 h-12 flex items-center justify-center rounded-full text-xl text-white bg-slate-800/60 backdrop-blur-md shadow-lg transition hover:bg-cyan-500 hover:scale-110;
+}
+.icon-btn.whatsapp, .fab-icon.whatsapp { @apply bg-green-600/80 hover:bg-green-500; }
+.icon-btn.telegram, .fab-icon.telegram { @apply bg-blue-600/80 hover:bg-blue-500; }
+.icon-btn.email, .fab-icon.email       { @apply bg-cyan-600/80 hover:bg-cyan-500; }
+
+/* FAB appears after intro */
+#fab.show { @apply opacity-100 pointer-events-auto transition ease-out duration-500; }
+
+/* ===== Buttons ===== */
+.btn-primary, .btn-outline {
+  @apply inline-flex items-center justify-center px-6 py-2.5 rounded-full tracking-wide text-sm font-semibold transition;
 }
 .btn-primary {
-@apply bg-cyan-500 hover:bg-cyan-400 text-slate-900 shadow-lg shadow-cyan-500/20;
+  @apply bg-cyan-500 hover:bg-cyan-400 text-slate-900 shadow-lg shadow-cyan-500/20;
 }
 .btn-outline {
-@apply border border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-slate-900;
+  @apply border border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-slate-900;
 }
 
-/* ===== Section styling ===== */
-.section {
-@apply py-24 px-6 text-center;
-}
-.section-title {
-@apply text-3xl sm:text-4xl font-bold mb-12 tracking-tight text-cyan-400;
-}
-
-/* ===== Hero background (blurred neon rings) ===== */
-.hero-bg::before,
-.hero-bg::after {
-content: "";
-position: absolute;
-border-radius: 50%;
-filter: blur(120px);
-opacity: 0.6;
-}
-.hero-bg::before {
-width: 480px; height: 480px;
-top: -120px; left: 50%;
-transform: translateX(-50%);
-background: radial-gradient(var(--accent), transparent 70%);
-}
-.hero-bg::after {
-width: 320px; height: 320px;
-bottom: -80px; right: 10%;
-background: radial-gradient(#7c3aed, transparent 70%);
-}
+/* ===== Section & headings ===== */
+.section { @apply py-24 px-6 text-center; }
+.section-title { @apply text-3xl sm:text-4xl font-bold mb-12 tracking-tight text-cyan-400; }
 
 /* ===== Skill cards ===== */
 .skill-card {
-@apply bg-slate-800/40 backdrop-blur-md p-6 rounded-2xl flex flex-col items-center gap-3 hover:-translate-y-1 hover:shadow-lg transition;
+  @apply bg-slate-800/40 backdrop-blur-md p-6 rounded-2xl flex flex-col items-center gap-3 hover:-translate-y-1 hover:shadow-lg transition;
 }
-.skill-card i {
-@apply text-3xl text-cyan-400;
-}
-.skill-card span {
-@apply text-sm font-medium;
-}
+.skill-card i { @apply text-3xl text-cyan-400; }
+.skill-card span { @apply text-sm font-medium; }
 
 /* ===== Timeline ===== */
-.timeline-item {
-@apply mb-10 ml-6;
-}
+.timeline-item { @apply mb-10 ml-6; position: relative; }
 .timeline-dot {
-@apply absolute -left-[9px] w-4 h-4 bg-cyan-400 rounded-full ring-4 ring-slate-900;
+  @apply absolute -left-[9px] w-4 h-4 bg-cyan-400 rounded-full ring-4 ring-slate-900;
 }
-.timeline-date {
-@apply mb-1 text-sm text-cyan-300 uppercase tracking-wider;
-}
-.timeline-title {
-@apply text-lg font-semibold;
-}
-.timeline-text {
-@apply text-sm text-slate-300 leading-relaxed;
-}
+.timeline-date { @apply mb-1 text-sm text-cyan-300 uppercase tracking-wider; }
+.timeline-title { @apply text-lg font-semibold; }
+.timeline-text { @apply text-sm text-slate-300 leading-relaxed; }
 
 /* ===== Form elements ===== */
-.form-label {
-@apply mb-1 text-left text-sm font-medium text-slate-300;
-}
+.form-label { @apply mb-1 text-left text-sm font-medium text-slate-300; }
 .form-input {
-@apply bg-slate-800/60 backdrop-blur-md border border-slate-600 rounded-xl px-4 py-2 outline-none focus:ring-2 focus:ring-cyan-400;
+  @apply bg-slate-800/60 backdrop-blur-md border border-slate-600 rounded-xl px-4 py-2 outline-none focus:ring-2 focus:ring-cyan-400;
 }
 
-/* ===== Animaciones ===== */
-@keyframes fade-in {
-from { opacity: 0; transform: scale(0.95); }
-to   { opacity: 1; transform: scale(1); }
+/* HERO BACKGROUND CIRCLES */
+.hero-bg::before, .hero-bg::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.6;
 }
-.animate-fade-in {
-animation: fade-in 0.8s ease-out forwards;
+.hero-bg::before {
+  width: 480px; height: 480px;
+  top: -120px; left: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(var(--accent), transparent 70%);
+}
+.hero-bg::after {
+  width: 320px; height: 320px;
+  bottom: -80px; right: 10%;
+  background: radial-gradient(#7c3aed, transparent 70%);
 }
