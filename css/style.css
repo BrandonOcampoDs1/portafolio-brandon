@@ -96,7 +96,11 @@ animation: slide-out-up 1.2s cubic-bezier(0.83, 0, 0.17, 1) 2s forwards;
   border-radius: 8px;
   cursor: pointer;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
 }
 ​
 .liquid {
