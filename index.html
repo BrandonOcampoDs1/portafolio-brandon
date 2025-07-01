@@ -147,39 +147,57 @@
          class="relative flex flex-col items-center justify-center text-center min-h-screen px-6 pt-24 overflow-hidden">
   <div class="absolute inset-0 hero-bg"></div>
 
+  <!-- Foto -->
   <img src="assets/BrandonOcampoDesarrollador.jpeg"
        alt="Brandon Ocampo"
-       class="relative w-40 h-40 rounded-full ring-4 ring-cyan-400 object-cover mb-6 animate-fade-in" />
+       class="relative w-40 h-40 rounded-full ring-4 ring-cyan-400 object-cover mb-6 animate-fade-in shadow-lg shadow-cyan-500/30" />
 
+  <!-- Nombre -->
   <h2 class="relative text-4xl sm:text-5xl font-extrabold mb-4 tracking-tight animate-slide-in-down">
     Brandon Ocampo
   </h2>
 
-  <p class="relative max-w-xl text-lg sm:text-xl text-slate-300 mb-6 animate-fade-in"
+  <!-- Descripción -->
+  <p class="relative max-w-xl text-lg sm:text-xl text-slate-300 mb-8 animate-fade-in"
      style="animation-delay: .3s">
     Desarrollador Web <span class="text-cyan-400 font-semibold">full‑stack PHP / Laravel</span><br />
     especializado en e‑commerce, integraciones y experiencias de usuario.
   </p>
 
-  <!-- Botones dinámicos -->
-  <div class="relative flex flex-wrap justify-center gap-4 animate-fade-in" style="animation-delay:.6s">
+  <!-- Tarjetas dinámicas -->
+  <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 animate-fade-in" style="animation-delay:.6s">
+    
     <!-- WhatsApp -->
     <a href="https://wa.me/573004540574" target="_blank"
-       class="btn-primary"><i class="fa-brands fa-whatsapp mr-2"></i>WhatsApp</a>
+       class="contact-card bg-green-600 hover:bg-green-500 shadow-green-500/30">
+      <i class="fa-brands fa-whatsapp text-3xl"></i>
+      <span class="text-sm">WhatsApp</span>
+    </a>
 
     <!-- Telegram -->
     <a href="https://t.me/TUUSUARIO" target="_blank"
-       class="btn-outline"><i class="fa-brands fa-telegram mr-2"></i>Telegram</a>
+       class="contact-card bg-blue-600 hover:bg-blue-500 shadow-blue-500/30">
+      <i class="fa-brands fa-telegram text-3xl"></i>
+      <span class="text-sm">Telegram</span>
+    </a>
 
-    <!-- Gmail -->
+    <!-- Email -->
     <a href="mailto:brandonocampods1@gmail.com"
-       class="btn-outline"><i class="fa-solid fa-envelope mr-2"></i>Email</a>
+       class="contact-card bg-cyan-600 hover:bg-cyan-500 shadow-cyan-500/30">
+      <i class="fa-solid fa-envelope text-3xl"></i>
+      <span class="text-sm">Email</span>
+    </a>
 
-    <!-- CV -->
+    <!-- Descargar CV -->
     <a href="assets/HV-BRANDONOCAMPO-2025.pdf" download
-       class="btn-outline"><i class="fa-solid fa-file-arrow-down mr-2"></i>Descargar CV</a>
+       class="contact-card bg-fuchsia-600 hover:bg-fuchsia-500 shadow-fuchsia-500/30">
+      <i class="fa-solid fa-file-arrow-down text-3xl"></i>
+      <span class="text-sm">Descargar CV</span>
+    </a>
+
   </div>
 </section>
+
 
 <!-- ===== ABOUT ===== -->
 <section id="about" class="section">

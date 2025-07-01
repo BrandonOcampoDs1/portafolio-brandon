@@ -25,6 +25,9 @@
   60%  { transform: scale(1.2); opacity: 1;}
   100% { transform: scale(1);}
 }
+.contact-card {
+  @apply flex flex-col items-center justify-center gap-2 px-4 py-5 rounded-xl text-white shadow-lg transition-transform hover:-translate-y-1 hover:scale-105;
+}
 
 #introOverlay {
   animation: slide-out-up 1.2s cubic-bezier(0.83, 0, 0.17, 1) 2s forwards;
