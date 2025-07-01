@@ -104,34 +104,3 @@
   bottom: -80px; right: 10%;
   background: radial-gradient(#7c3aed, transparent 70%);
 }
-.btn-custom {
-  @apply relative flex items-center justify-between gap-3 px-6 py-3 text-white text-sm font-semibold rounded-[30px] overflow-hidden z-0 transition-all duration-500;
-  background-color: transparent;
-  border: 2px solid #06b6d4;
-}
-
-.btn-custom::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, #06b6d4, #3b82f6);
-  transform: translateX(-100%);
-  transition: transform 0.4s ease;
-  z-index: -1;
-}
-
-.btn-custom:hover::before {
-  transform: translateX(0);
-}
-
-.btn-custom span {
-  @apply z-10;
-}
-
-.icon-img {
-  width: 22px;
-  height: 22px;
-  object-fit: contain;
-  @apply z-10;
-}
-
