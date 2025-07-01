@@ -1,36 +1,36 @@
 /* Tailwind hace la base; aquí van animaciones y estilos extra */
 
 :root {
-  --accent: #06b6d4;
+--accent: #06b6d4;
 }
 
 /* === INTRO OVERLAY ANIMATION === */
 @keyframes slide-out-up {
-  to { transform: translateY(-100%); }
+to { transform: translateY(-100%); }
 }
 @keyframes slide-in-left {
-  from { transform: translateX(-40px); opacity: 0;}
-  to   { transform: translateX(0);     opacity: 1;}
+from { transform: translateX(-40px); opacity: 0;}
+to   { transform: translateX(0);     opacity: 1;}
 }
 @keyframes slide-in-down {
-  from { transform: translateY(-40px); opacity: 0;}
-  to   { transform: translateY(0);     opacity: 1;}
+from { transform: translateY(-40px); opacity: 0;}
+to   { transform: translateY(0);     opacity: 1;}
 }
 @keyframes fade-in {
-  from { opacity: 0;}
-  to   { opacity: 1;}
+from { opacity: 0;}
+to   { opacity: 1;}
 }
 @keyframes bounce-in {
-  0%   { transform: scale(0.5); opacity: 0;}
-  60%  { transform: scale(1.2); opacity: 1;}
-  100% { transform: scale(1);}
+0%   { transform: scale(0.5); opacity: 0;}
+60%  { transform: scale(1.2); opacity: 1;}
+100% { transform: scale(1);}
 }
 .contact-card {
-  @apply flex flex-col items-center justify-center gap-2 px-4 py-5 rounded-xl text-white shadow-lg transition-transform hover:-translate-y-1 hover:scale-105;
+@apply flex flex-col items-center justify-center gap-2 px-4 py-5 rounded-xl text-white shadow-lg transition-transform hover:-translate-y-1 hover:scale-105;
 }
 
 #introOverlay {
-  animation: slide-out-up 1.2s cubic-bezier(0.83, 0, 0.17, 1) 2s forwards;
+animation: slide-out-up 1.2s cubic-bezier(0.83, 0, 0.17, 1) 2s forwards;
 }
 .animate-slide-in-left { animation: slide-in-left .8s forwards .2s; }
 .animate-slide-in-down { animation: slide-in-down .8s forwards; }
@@ -39,7 +39,7 @@
 
 /* ===== icon buttons ===== */
 .icon-btn, .fab-icon {
-  @apply w-12 h-12 flex items-center justify-center rounded-full text-xl text-white bg-slate-800/60 backdrop-blur-md shadow-lg transition hover:bg-cyan-500 hover:scale-110;
+@apply w-12 h-12 flex items-center justify-center rounded-full text-xl text-white bg-slate-800/60 backdrop-blur-md shadow-lg transition hover:bg-cyan-500 hover:scale-110;
 }
 .icon-btn.whatsapp, .fab-icon.whatsapp { @apply bg-green-600/80 hover:bg-green-500; }
 .icon-btn.telegram, .fab-icon.telegram { @apply bg-blue-600/80 hover:bg-blue-500; }
@@ -50,13 +50,13 @@
 
 /* ===== Buttons ===== */
 .btn-primary, .btn-outline {
-  @apply inline-flex items-center justify-center px-6 py-2.5 rounded-full tracking-wide text-sm font-semibold transition;
+@apply inline-flex items-center justify-center px-6 py-2.5 rounded-full tracking-wide text-sm font-semibold transition;
 }
 .btn-primary {
-  @apply bg-cyan-500 hover:bg-cyan-400 text-slate-900 shadow-lg shadow-cyan-500/20;
+@apply bg-cyan-500 hover:bg-cyan-400 text-slate-900 shadow-lg shadow-cyan-500/20;
 }
 .btn-outline {
-  @apply border border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-slate-900;
+@apply border border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-slate-900;
 }
 
 /* ===== Section & headings ===== */
@@ -65,7 +65,7 @@
 
 /* ===== Skill cards ===== */
 .skill-card {
-  @apply bg-slate-800/40 backdrop-blur-md p-6 rounded-2xl flex flex-col items-center gap-3 hover:-translate-y-1 hover:shadow-lg transition;
+@apply bg-slate-800/40 backdrop-blur-md p-6 rounded-2xl flex flex-col items-center gap-3 hover:-translate-y-1 hover:shadow-lg transition;
 }
 .skill-card i { @apply text-3xl text-cyan-400; }
 .skill-card span { @apply text-sm font-medium; }
@@ -73,7 +73,7 @@
 /* ===== Timeline ===== */
 .timeline-item { @apply mb-10 ml-6; position: relative; }
 .timeline-dot {
-  @apply absolute -left-[9px] w-4 h-4 bg-cyan-400 rounded-full ring-4 ring-slate-900;
+@apply absolute -left-[9px] w-4 h-4 bg-cyan-400 rounded-full ring-4 ring-slate-900;
 }
 .timeline-date { @apply mb-1 text-sm text-cyan-300 uppercase tracking-wider; }
 .timeline-title { @apply text-lg font-semibold; }
@@ -82,9 +82,67 @@
 /* ===== Form elements ===== */
 .form-label { @apply mb-1 text-left text-sm font-medium text-slate-300; }
 .form-input {
-  @apply bg-slate-800/60 backdrop-blur-md border border-slate-600 rounded-xl px-4 py-2 outline-none focus:ring-2 focus:ring-cyan-400;
+@apply bg-slate-800/60 backdrop-blur-md border border-slate-600 rounded-xl px-4 py-2 outline-none focus:ring-2 focus:ring-cyan-400;
+}
+
+
+
+.btn-custom{
+opacity: 1;
+outline: 0;
+color: #fff;
+line-height: 40px;
+position: relative;
+text-align: center;
+letter-spacing: 1px;
+display: inline-block;
+text-decoration: none;
+font-family: 'Open Sans';
+text-transform: uppercase;
+
+&:hover{
+    
+    &:after{
+        opacity: 1;
+        transform: translateY(0) rotateX(0);
+    }
+    
+    &:before{
+        opacity: 0;
+        transform: translateY(50%) rotateX(90deg);
+    }
+}
+
+&:after{
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    color: #323237;
+    display: block;
+    transition: $speed;
+    position: absolute;
+    background: #adadaf;
+    content: attr(data-back);
+    transform: translateY(-50%) rotateX(90deg);
+}
+
+&:before{
+    top: 0;
+    left: 0;
+    opacity: 1;
+    color: #adadaf;
+    display: block;
+    padding: 0 30px;
+    line-height: 40px;
+    transition: $speed;
+    position: relative;
+    background: #323237;
+    content: attr(data-front);
+    transform: translateY(0) rotateX(0);
+}
 }
 .icon-img{
-    height: 25px !important;
-    width: 25px !important;
+height: 25px !important;
+width: 25px !important;
 }
