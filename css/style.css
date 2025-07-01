@@ -85,62 +85,31 @@ animation: slide-out-up 1.2s cubic-bezier(0.83, 0, 0.17, 1) 2s forwards;
 @apply bg-slate-800/60 backdrop-blur-md border border-slate-600 rounded-xl px-4 py-2 outline-none focus:ring-2 focus:ring-cyan-400;
 }
 
-
-
-.btn-custom{
-opacity: 1;
-outline: 0;
-color: #fff;
-line-height: 40px;
-position: relative;
-text-align: center;
-letter-spacing: 1px;
-display: inline-block;
-text-decoration: none;
-font-family: 'Open Sans';
-text-transform: uppercase;
-
-&:hover{
-    
-    &:after{
-        opacity: 1;
-        transform: translateY(0) rotateX(0);
-    }
-    
-    &:before{
-        opacity: 0;
-        transform: translateY(50%) rotateX(90deg);
-    }
+.btn {
+  position: relative;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  background: none;
+  border: 2px solid #646cff;
+  border-radius: 8px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
 }
-
-&:after{
-    top: 0;
-    left: 0;
-    opacity: 0;
-    width: 100%;
-    color: #323237;
-    display: block;
-    transition: $speed;
-    position: absolute;
-    background: #adadaf;
-    content: attr(data-back);
-    transform: translateY(-50%) rotateX(90deg);
+​
+.liquid {
+  background: linear-gradient(#646cff 0 0) no-repeat calc(200% - var(--p, 0%))
+    100% / 200% var(--p, 0.2em);
+  transition: 0.3s var(--t, 0s),
+    background-position 0.3s calc(0.3s - var(--t, 0s));
 }
-
-&:before{
-    top: 0;
-    left: 0;
-    opacity: 1;
-    color: #adadaf;
-    display: block;
-    padding: 0 30px;
-    line-height: 40px;
-    transition: $speed;
-    position: relative;
-    background: #323237;
-    content: attr(data-front);
-    transform: translateY(0) rotateX(0);
-}
+​
+.liquid:hover {
+  --p: 100%;
+  --t: 0.3s;
+  color: #fff;
 }
 .icon-img{
 height: 25px !important;
