@@ -48,11 +48,11 @@
         >
           Desarrollador Full Stack Php
         </h2>
-          <img
-            src="assets/icono_brandon.png"
-            alt="Icono Brandon"
-            class="h-24 w-auto md:h-24 transition-all duration-300 mx-auto"
-          />
+        <img
+          src="assets/icono_brandon.png"
+          alt="Icono Brandon"
+          class="h-24 w-auto md:h-24 transition-all duration-300 mx-auto"
+        />
 
         <div class="flex justify-center gap-6 mb-8">
           <a
@@ -103,31 +103,23 @@
     <!-- ===== NAVBAR ===== -->
     <header class="fixed inset-x-0 top-0 z-50 backdrop-blur-sm">
       <nav
-        class="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between"
+        class="relative mx-auto max-w-6xl px-6 py-4 pt-15 flex items-center justify-between"
       >
-        <!-- Branding: Logo + Nombre -->
-        <div class="flex items-center gap-3 md:gap-4">
+        <!-- Contenedor centrado absoluto -->
+        <div
+          class="absolute left-1/2 transform -translate-x-1/2 flex items-center gap-3 md:gap-4"
+        >
           <img
             src="assets/icono_brandon.png"
             alt="Icono Brandon"
             class="h-10 w-auto md:h-14 transition-all duration-300"
           />
-          <h1 class="text-xl font-bold tracking-wide">
+          <h1 class="text-xl font-bold tracking-wide text-center">
             <a href="#hero" class="hover:text-cyan-400 transition">
               Brandon<strong class="text-cyan-400">.</strong>
             </a>
           </h1>
         </div>
-
-        <!-- Menú de navegación en desktop -->
-        <ul
-          id="mainNav"
-          class="hidden md:flex gap-8 text-sm uppercase font-medium"
-        >
-          <li><a href="#about" class="nav-link">Sobre mí</a></li>
-          <li><a href="#experience" class="nav-link">Experiencia</a></li>
-          <li><a href="#contact" class="nav-link">Contacto</a></li>
-        </ul>
 
         <!-- Botón hamburguesa en móvil -->
         <button
@@ -143,7 +135,7 @@
         class="hidden flex-col gap-6 bg-slate-900 text-center py-6 md:hidden"
       >
         <li><a href="#about" class="nav-link block">Sobre mí</a></li>
-        <li><a href="#skills" class="nav-link block">Habilidades</a></li>
+        <!-- <li><a href="#skills" class="nav-link block">Habilidades</a></li> -->
         <li><a href="#experience" class="nav-link block">Experiencia</a></li>
         <li><a href="#contact" class="nav-link block">Contacto</a></li>
       </ul>
@@ -152,79 +144,158 @@
     <!-- ===== HERO ===== -->
     <section
       id="hero"
-      class="relative flex flex-col items-center justify-center text-center min-h-screen px-6 pt-24 overflow-hidden"
+      class="relative flex flex-col items-center justify-center text-center min-h-screen px-6 pt-20 overflow-hidden"
     >
-      <!-- <div class="absolute inset-0 hero-bg"></div> -->
-      <img
-        src="assets/BrandonOcampoDesarrollador.jpeg"
-        alt="Brandon Ocampo"
-        class="relative w-56 h-56 rounded-full ring-4 ring-cyan-400 object-cover mb-6 animate-fade-in shadow-lg shadow-cyan-500/30"
-      />
-
-      <h2
-        class="text-4xl sm:text-5xl font-extrabold mb-4 tracking-tight animate-slide-in-down"
-      >
-        Brandon Ocampo
-      </h2>
-      <p
-        class="max-w-xl text-lg sm:text-xl text-slate-300 mb-8 animate-fade-in"
-        style="animation-delay: 0.3s"
-      >
-        Desarrollador Web
-        <span class="text-cyan-400 font-semibold">full‑stack PHP / Laravel</span
-        ><br />
-        especializado en e‑commerce, integraciones y experiencias de usuario.
-      </p>
-      <div class="btn_info">
-        <a
-          href="https://wa.me/573004540574"
-          target="_blank"
-          class="btn_b liquid"
+      <!-- Logos de fondo -->
+      <div class="absolute inset-0 z-0 opacity-20 pointer-events-none">
+        <div
+          class="grid grid-cols-4 sm:grid-cols-6 gap-7 justify-items-center items-center w-full h-full p-10"
         >
-          <span>WhatsApp</span>
-          <img src="assets/wpp.png" alt="WhatsApp" class="icon-img" />
-        </a>
-
-        <a
-          href="https://t.me/+573004540574"
-          target="_blank"
-          class="btn_b liquid"
-        >
-          <span>Telegram</span>
-          <img src="assets/telegrama.png" alt="Telegram" class="icon-img" />
-        </a>
-
-        <a
-          href="mailto:brandonocampods1@gmail.com"
-          target="_blank"
-          class="btn_b liquid"
-        >
-          <span>Email</span>
-          <img src="assets/gmail.png" alt="Gmail" class="icon-img" />
-        </a>
-
-        <a
-          href="assets/HV-BRANDONOCAMPO-2025.pdf"
-          download
-          class="btn_b liquid"
-        >
-          <span>Descargar CV</span>
-          <img src="assets/descargar.png" alt="CV" class="icon-img" />
-        </a>
+          <!-- Reutiliza los logos aquí, sin nombres debajo -->
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg"
+            class="w-12 h-12"
+            alt="PHP"
+          />
+          <img
+            src="https://laravel.com/img/logomark.min.svg"
+            class="w-12 h-12"
+            alt="Laravel"
+          />
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+            class="w-12 h-12"
+            alt="HTML"
+          />
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+            class="w-12 h-12"
+            alt="CSS"
+          />
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+            class="w-12 h-12"
+            alt="JS"
+          />
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg"
+            class="w-12 h-12"
+            alt="Vue"
+          />
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
+            class="w-12 h-12"
+            alt="MySQL"
+          />
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
+            class="w-12 h-12"
+            alt="PostgreSQL"
+          />
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+            class="w-12 h-12"
+            alt="Git"
+          />
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+            class="w-12 h-12 bg-white rounded-full"
+            alt="GitHub"
+          />
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg"
+            class="w-12 h-12"
+            alt="WP"
+          />
+          <img
+            src="https://www.jenkins.io/images/logos/jenkins/jenkins.svg"
+            class="w-12 h-12"
+            alt="Jenkins"
+          />
+        </div>
       </div>
-      <div class="pt-4">
+
+      <!-- Contenido principal encima del fondo -->
+      <div class="relative z-10 flex flex-col items-center">
+        <img
+          src="assets/BrandonOcampoDesarrollador.jpeg"
+          alt="Brandon Ocampo"
+          class="w-56 h-56 rounded-full ring-4 ring-cyan-400 object-cover mb-6 animate-fade-in shadow-lg shadow-cyan-500/30"
+        />
+
+        <h2
+          class="text-4xl sm:text-5xl font-extrabold mb-4 tracking-tight animate-slide-in-down"
+        >
+          Brandon Ocampo
+        </h2>
+
         <p
           class="max-w-xl text-lg sm:text-xl text-slate-300 mb-8 animate-fade-in"
           style="animation-delay: 0.3s"
         >
-          Correo:
-          <span class="text-cyan-400 font-semibold"
-            >brandonocampods1@gmail.com</span
-          >
-          <br />
-          Celular:
-          <span class="text-cyan-400 font-semibold">+57 300 454 0574</span>
+          Desarrollador Web
+          <span class="text-cyan-400 font-semibold">PHP / Laravel </span><br />
+          especializado en e-commerce, sistemas administrativos, integraciones y
+          experiencias de usuario <br /><span
+            class="text-cyan-400 font-semibold"
+            ><a href="#experience" style="text-decoration: none"
+              >CON MAS DE 3 AÑOS DE EXPERIENCIA</a
+            ></span
+          >.
         </p>
+
+        <!-- Botones -->
+        <div class="btn_info">
+          <a
+            href="https://wa.me/573004540574"
+            target="_blank"
+            class="btn_b liquid"
+          >
+            <span>WhatsApp</span>
+            <img src="assets/wpp.png" alt="WhatsApp" class="icon-img" />
+          </a>
+
+          <a
+            href="https://t.me/+573004540574"
+            target="_blank"
+            class="btn_b liquid"
+          >
+            <span>Telegram</span>
+            <img src="assets/telegrama.png" alt="Telegram" class="icon-img" />
+          </a>
+
+          <a
+            href="mailto:brandonocampods1@gmail.com"
+            target="_blank"
+            class="btn_b liquid"
+          >
+            <span>Email</span>
+            <img src="assets/gmail.png" alt="Gmail" class="icon-img" />
+          </a>
+
+          <a
+            href="assets/HV-BRANDONOCAMPO-2025.pdf"
+            download
+            class="btn_b liquid"
+          >
+            <span>Descargar CV</span>
+            <img src="assets/descargar.png" alt="CV" class="icon-img" />
+          </a>
+        </div>
+
+        <div class="pt-4">
+          <p
+            class="max-w-xl text-lg sm:text-xl text-slate-300 mb-8 animate-fade-in"
+            style="animation-delay: 0.3s"
+          >
+            Correo:
+            <span class="text-cyan-400 font-semibold"
+              >brandonocampods1@gmail.com</span
+            ><br />
+            Celular:
+            <span class="text-cyan-400 font-semibold">+57 300 454 0574</span>
+          </p>
+        </div>
       </div>
     </section>
 
@@ -384,13 +455,23 @@
     <!-- ===== EXPERIENCE ===== -->
     <section
       id="experience"
-      class="section bg-slate-900 text-white px-4 sm:px-6"
+      class="section bg-slate-900 text-white px-4 pb-10 sm:px-6"
     >
       <h3
         class="section-title text-3xl font-bold text-center mb-12 text-cyan-400"
       >
         Experiencia laboral
       </h3>
+      <span
+        style="
+          display: flex;
+          flex-direction: row;
+          text-align: center;
+          justify-content: center;
+        "
+        class="text-slate-300 text-sm font-bold text-center mb-12 text-cyan-400"
+        >En todos estos proyectos tuve participación directa</span
+      >
 
       <div class="max-w-7xl mx-auto grid gap-12 lg:grid-cols-2">
         <!-- Webcreativa -->
@@ -406,8 +487,8 @@
               REST. Lideré proyectos de alto tráfico en producción.
             </p>
             <ul class="mt-2 text-sm text-cyan-300 list-disc list-inside">
-              <li>Laravel, PHP, MySQL</li>
-              <li>Shopify (Liquid, Admin API)</li>
+              <li>Laravel, PHP, MySQL, VueJs</li>
+              <li>Shopify, WordPress</li>
               <li>Integraciones de pago y logística</li>
             </ul>
           </div>
@@ -507,7 +588,7 @@
 
     <!-- ===== CONTACT ===== -->
     <!-- ===== CONTACT ===== -->
-    <section
+    <!-- <section
       id="contact"
       class="section bg-gradient-to-b from-slate-900 to-slate-950"
     >
@@ -519,7 +600,6 @@
       <div
         class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-1 gap-10 items-center px-4"
       >
-        <!-- Columna izquierda -->
         <div
           class="flex flex-col items-center text-center md:text-left md:items-start gap-6 animate-slide-in-left"
         >
@@ -573,7 +653,6 @@
           </div>
         </div>
 
-        <!-- Formulario -->
         <form
           id="contactForm"
           class="flex flex-col gap-6 p-6 bg-white/5 backdrop-blur-md rounded-2xl shadow-xl border border-white/10 animate-fade-in"
@@ -626,7 +705,7 @@
           </button>
         </form>
       </div>
-    </section>
+    </section> -->
 
     <!-- ===== FOOTER ===== -->
     <footer class="py-6 text-center text-xs bg-slate-950 text-slate-500">
