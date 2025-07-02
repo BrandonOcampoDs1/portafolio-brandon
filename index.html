@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <title>Brandon Ocampo - Portafolio</title>
+    <link rel="icon" href="assets/icono_brandon.png" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script
@@ -96,13 +97,23 @@
     <!-- ===== NAVBAR ===== -->
     <header class="fixed inset-x-0 top-0 z-50 backdrop-blur-sm">
       <nav
-        class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4"
+        class="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between"
       >
-        <h1 class="text-xl font-bold tracking-wide">
-          <a href="#hero" class="hover:text-cyan-400 transition">
-            Brandon<strong class="text-cyan-400">.</strong>
-          </a>
-        </h1>
+        <!-- Branding: Logo + Nombre -->
+        <div class="flex items-center gap-3 md:gap-4">
+          <img
+            src="assets/icono_brandon.png"
+            alt="Icono Brandon"
+            class="h-10 w-auto md:h-14 transition-all duration-300"
+          />
+          <h1 class="text-xl font-bold tracking-wide">
+            <a href="#hero" class="hover:text-cyan-400 transition">
+              Brandon<strong class="text-cyan-400">.</strong>
+            </a>
+          </h1>
+        </div>
+
+        <!-- Menú de navegación en desktop -->
         <ul
           id="mainNav"
           class="hidden md:flex gap-8 text-sm uppercase font-medium"
@@ -111,9 +122,11 @@
           <li><a href="#experience" class="nav-link">Experiencia</a></li>
           <li><a href="#contact" class="nav-link">Contacto</a></li>
         </ul>
+
+        <!-- Botón hamburguesa en móvil -->
         <button
           id="burger"
-          class="md:hidden text-xl focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded-lg p-2"
+          class="md:hidden text-2xl focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded-lg p-2"
         >
           <i class="fa-solid fa-bars"></i>
         </button>
@@ -133,14 +146,15 @@
     <!-- ===== HERO ===== -->
     <section
       id="hero"
-      class="relative flex flex-col items-center justify-center text-center min-h-screen px-6 pt-2 overflow-hidden"
+      class="relative flex flex-col items-center justify-center text-center min-h-screen px-6 pt-24 overflow-hidden"
     >
-      <div class="absolute inset-0 hero-bg"></div>
+      <!-- <div class="absolute inset-0 hero-bg"></div> -->
       <img
         src="assets/BrandonOcampoDesarrollador.jpeg"
         alt="Brandon Ocampo"
-        class="relative w-40 h-40 rounded-full ring-4 ring-cyan-400 object-cover mb-6 animate-fade-in shadow-lg shadow-cyan-500/30"
+        class="relative w-56 h-56 rounded-full ring-4 ring-cyan-400 object-cover mb-6 animate-fade-in shadow-lg shadow-cyan-500/30"
       />
+
       <h2
         class="text-4xl sm:text-5xl font-extrabold mb-4 tracking-tight animate-slide-in-down"
       >
@@ -362,189 +376,255 @@
     </section>
 
     <!-- ===== EXPERIENCE ===== -->
-<section id="experience" class="section bg-slate-900 text-white">
-  <h3 class="section-title text-3xl font-bold text-center mb-12 text-cyan-400">
-    Experiencia laboral
-  </h3>
+    <section
+      id="experience"
+      class="section bg-slate-900 text-white px-4 sm:px-6"
+    >
+      <h3
+        class="section-title text-3xl font-bold text-center mb-12 text-cyan-400"
+      >
+        Experiencia laboral
+      </h3>
 
-  <div class="max-w-7xl mx-auto grid gap-12 lg:grid-cols-2">
-    <!-- Webcreativa -->
-    <div class="md:grid md:grid-cols-3 gap-6 items-start">
-      <div class="col-span-1">
-        <h4 class="text-xl font-semibold">Webcreativa S.A.S.</h4>
-        <p class="text-sm text-slate-400">Dic 2024 – Actual</p>
-        <p class="mt-2 text-slate-300 text-sm">
-          Desarrollo de plataformas a medida con Laravel, Shopify y APIs REST. Lideré proyectos de alto tráfico en producción.
-        </p>
-        <ul class="mt-2 text-sm text-cyan-300 list-disc list-inside">
-          <li>Laravel, PHP, MySQL</li>
-          <li>Shopify (Liquid, Admin API)</li>
-          <li>Integraciones de pago y logística</li>
-        </ul>
-      </div>
-      <div class="col-span-2">
-        <img src="assets/nodac_proyecto.png" alt="Proyecto Webcreativa" class="rounded-xl shadow-lg w-full" />
-      </div>
-    </div>
+      <div class="max-w-7xl mx-auto grid gap-12 lg:grid-cols-2">
+        <!-- Webcreativa -->
+        <div
+          style="display: flex; flex-direction: row; align-items: center"
+          class="md:grid md:grid-cols-3 gap-6 items-start p-4 bg-slate-800 rounded-xl shadow-md img_cards_exp"
+        >
+          <div class="col-span-1">
+            <h4 class="text-xl font-semibold">Webcreativa S.A.S.</h4>
+            <p class="text-sm text-slate-400">Dic 2024 – Actual</p>
+            <p class="mt-2 text-slate-300 text-sm">
+              Desarrollo de plataformas a medida con Laravel, Shopify y APIs
+              REST. Lideré proyectos de alto tráfico en producción.
+            </p>
+            <ul class="mt-2 text-sm text-cyan-300 list-disc list-inside">
+              <li>Laravel, PHP, MySQL</li>
+              <li>Shopify (Liquid, Admin API)</li>
+              <li>Integraciones de pago y logística</li>
+            </ul>
+          </div>
+          <div class="col-span-2 mt-4 md:mt-0">
+            <img
+              src="assets/nodac_proyecto.png"
+              alt="Proyecto Webcreativa"
+              class="rounded-xl shadow-lg w-full"
+            />
+          </div>
+        </div>
 
-    <!-- Fenixpuntonet -->
-    <div class="md:grid md:grid-cols-3 gap-6 items-start">
-      <div class="col-span-1">
-        <h4 class="text-xl font-semibold">Fenixpuntonet</h4>
-        <p class="text-sm text-slate-400">Feb 2024 – Dic 2024</p>
-        <p class="mt-2 text-slate-300 text-sm">
-          Desarrollo full-stack en Laravel/Yii2. Implementación de e‑commerce en WordPress y Shopify para múltiples marcas.
-        </p>
-        <ul class="mt-2 text-sm text-cyan-300 list-disc list-inside">
-          <li>Laravel, Yii2, Vue.js</li>
-          <li>Shopify, WordPress</li>
-          <li>Módulos personalizados y despliegues</li>
-        </ul>
-      </div>
-      <div class="col-span-2">
-        <img src="assets/masterbaul_proyecto.png" alt="Proyecto Fenix" class="rounded-xl shadow-lg w-full" />
-      </div>
-    </div>
+        <!-- Fenixpuntonet -->
+        <div
+          style="display: flex; flex-direction: row; align-items: center"
+          class="md:grid md:grid-cols-3 gap-6 items-start p-4 bg-slate-800 rounded-xl shadow-md img_cards_exp"
+        >
+          <div class="col-span-1">
+            <h4 class="text-xl font-semibold">Fenixpuntonet</h4>
+            <p class="text-sm text-slate-400">Feb 2024 – Dic 2024</p>
+            <p class="mt-2 text-slate-300 text-sm">
+              Desarrollo full-stack en Laravel/Yii2. Implementación de
+              e‑commerce en WordPress y Shopify para múltiples marcas.
+            </p>
+            <ul class="mt-2 text-sm text-cyan-300 list-disc list-inside">
+              <li>Laravel, Yii2, Vue.js</li>
+              <li>Shopify, WordPress</li>
+              <li>Módulos personalizados y despliegues</li>
+            </ul>
+          </div>
+          <div class="col-span-2 mt-4 md:mt-0">
+            <img
+              src="assets/masterbaul_proyecto.png"
+              alt="Proyecto Fenix"
+              class="rounded-xl shadow-lg w-full"
+            />
+          </div>
+        </div>
 
-    <!-- Konecta -->
-    <div class="md:grid md:grid-cols-3 gap-6 items-start">
-      <div class="col-span-1">
-        <h4 class="text-xl font-semibold">Konecta</h4>
-        <p class="text-sm text-slate-400">Ago 2022 – May 2023</p>
-        <p class="mt-2 text-slate-300 text-sm">
-          Analista de desarrollo participando en mantenimiento y evolución de sistemas internos en PHP/Yii. Involucrado en QA y despliegues bajo metodologías ágiles.
-        </p>
-        <ul class="mt-2 text-sm text-cyan-300 list-disc list-inside">
-          <li>PHP, Yii2, DB2</li>
-          <li>SCRUM, JIRA, QA</li>
-          <li>Git, Bitbucket</li>
-        </ul>
-      </div>
-      <div class="col-span-2">
-        <img src="assets/konecta_proyecto.png" alt="Proyecto Konecta" class="rounded-xl shadow-lg w-full" />
-      </div>
-    </div>
+        <!-- Konecta -->
+        <div
+          style="display: flex; flex-direction: row; align-items: center"
+          class="md:grid md:grid-cols-3 gap-6 items-start p-4 bg-slate-800 rounded-xl shadow-md img_cards_exp"
+        >
+          <div class="col-span-1">
+            <h4 class="text-xl font-semibold">Konecta</h4>
+            <p class="text-sm text-slate-400">Ago 2022 – May 2023</p>
+            <p class="mt-2 text-slate-300 text-sm">
+              Analista de desarrollo participando en mantenimiento y evolución
+              de sistemas internos en PHP/Yii. Involucrado en QA y despliegues
+              bajo metodologías ágiles.
+            </p>
+            <ul class="mt-2 text-sm text-cyan-300 list-disc list-inside">
+              <li>PHP, Yii2, DB2</li>
+              <li>SCRUM, JIRA, QA</li>
+              <li>Git, Bitbucket</li>
+            </ul>
+          </div>
+          <div class="col-span-2 mt-4 md:mt-0">
+            <img
+              src="assets/konecta_proyecto.png"
+              alt="Proyecto Konecta"
+              class="rounded-xl shadow-lg w-full"
+            />
+          </div>
+        </div>
 
-    <!-- Procoformas -->
-    <div class="md:grid md:grid-cols-3 gap-6 items-start">
-      <div class="col-span-1">
-        <h4 class="text-xl font-semibold">Procoformas S.A.</h4>
-        <p class="text-sm text-slate-400">Sep 2020 – Jun 2022</p>
-        <p class="mt-2 text-slate-300 text-sm">
-          Desarrollo full-stack de dos sistemas empresariales hechos completamente desde cero, gestionando de forma individual todo el ciclo de producción: análisis, desarrollo, despliegue y soporte.
-        </p>
-        <ul class="mt-2 text-sm text-cyan-300 list-disc list-inside">
-          <li>PHP, Laravel, MySQL</li>
-          <li>Git, cPanel</li>
-          <li>Desarrollo autónomo y soporte continuo</li>
-        </ul>
+        <!-- Procoformas -->
+        <div
+          style="display: flex; flex-direction: row; align-items: center"
+          class="md:grid md:grid-cols-3 gap-6 items-start p-4 bg-slate-800 rounded-xl shadow-md img_cards_exp"
+        >
+          <div class="col-span-1">
+            <h4 class="text-xl font-semibold">Procoformas S.A.</h4>
+            <p class="text-sm text-slate-400">Sep 2020 – Jun 2022</p>
+            <p class="mt-2 text-slate-300 text-sm">
+              Desarrollo full-stack de dos sistemas empresariales hechos
+              completamente desde cero, gestionando de forma individual todo el
+              ciclo de producción: análisis, desarrollo, despliegue y soporte.
+            </p>
+            <ul class="mt-2 text-sm text-cyan-300 list-disc list-inside">
+              <li>PHP, Laravel, MySQL</li>
+              <li>Git, cPanel</li>
+              <li>Desarrollo autónomo y soporte continuo</li>
+            </ul>
+          </div>
+          <div class="col-span-2 mt-4 md:mt-0">
+            <img
+              src="assets/procoformas_proyecto.png"
+              alt="Proyecto Procoformas"
+              class="rounded-xl shadow-lg w-full"
+            />
+          </div>
+        </div>
       </div>
-      <div class="col-span-2">
-        <img src="assets/procoformas_proyecto.png" alt="Proyecto Procoformas" class="rounded-xl shadow-lg w-full" />
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
+    <!-- ===== CONTACT ===== -->
     <!-- ===== CONTACT ===== -->
     <section
       id="contact"
       class="section bg-gradient-to-b from-slate-900 to-slate-950"
     >
-      <h3 class="section-title">Contacto</h3>
+      <h3
+        class="section-title text-3xl font-bold text-center mb-12 pt-8 text-cyan-400"
+      >
+        Contactame
+      </h3>
       <div
-        class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center px-4"
+        class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-1 gap-10 items-center px-4"
       >
         <!-- Columna izquierda -->
         <div
           class="flex flex-col items-center text-center md:text-left md:items-start gap-6 animate-slide-in-left"
         >
-          <img
-            src="assets/BrandonOcampoDesarrollador.jpeg"
-            alt="Brandon Ocampo"
-            class="w-40 h-40 rounded-full object-cover ring-4 ring-cyan-400 shadow-xl"
-          />
-          <p class="text-slate-300 leading-relaxed">
-            Si tienes un proyecto en mente, una vacante o quieres conectar,
-            estoy disponible para colaborar.
+          <p
+            class="text-slate-300 leading-relaxed text-lg text-center max-w-xl mx-auto"
+          >
+            ¿Tienes un proyecto, una vacante o simplemente quieres conectar?<br />
+            Estoy disponible para colaborar y crear cosas geniales juntos.
           </p>
-          <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+
+          <div class="flex gap-6 text-3xl text-cyan-400">
             <a
               href="https://wa.me/573004540574"
               target="_blank"
-              class="btn-primary"
+              aria-label="WhatsApp"
+              class="hover:text-cyan-300 transition"
             >
-              <i class="fa-brands fa-whatsapp mr-2"></i>WhatsApp
+              <i class="fa-brands fa-whatsapp"></i>
             </a>
             <a
               href="https://t.me/TUUSUARIO"
               target="_blank"
-              class="btn-outline"
+              aria-label="Telegram"
+              class="hover:text-cyan-300 transition"
             >
-              <i class="fa-brands fa-telegram mr-2"></i>Telegram
+              <i class="fa-brands fa-telegram"></i>
             </a>
-            <a href="mailto:brandonocampods1@gmail.com" class="btn-outline">
-              <i class="fa-solid fa-envelope mr-2"></i>Email
+            <a
+              href="mailto:brandonocampods1@gmail.com"
+              aria-label="Email"
+              class="hover:text-cyan-300 transition"
+            >
+              <i class="fa-solid fa-envelope"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/brandon-ocampo-desarrollador/"
+              target="_blank"
+              aria-label="LinkedIn"
+              class="hover:text-cyan-300 transition"
+            >
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a
+              href="https://github.com/BrandonOcampo"
+              target="_blank"
+              aria-label="GitHub"
+              class="hover:text-cyan-300 transition"
+            >
+              <i class="fa-brands fa-github"></i>
             </a>
           </div>
         </div>
 
         <!-- Formulario -->
-        <form id="contactForm" class="flex flex-col gap-4 animate-fade-in">
+        <form
+          id="contactForm"
+          class="flex flex-col gap-6 p-6 bg-white/5 backdrop-blur-md rounded-2xl shadow-xl border border-white/10 animate-fade-in"
+        >
           <div class="flex flex-col">
-            <label for="name" class="form-label">Nombre</label>
+            <label for="name" class="text-slate-200 text-sm font-medium mb-1"
+              >Nombre</label
+            >
             <input
               id="name"
               name="name"
               type="text"
               required
-              class="form-input"
+              placeholder="Escribe tu nombre..."
+              class="w-full px-4 py-3 rounded-xl bg-slate-800/50 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition"
             />
           </div>
           <div class="flex flex-col">
-            <label for="email" class="form-label">Correo</label>
+            <label for="email" class="text-slate-200 text-sm font-medium mb-1"
+              >Correo</label
+            >
             <input
               id="email"
               name="email"
               type="email"
               required
-              class="form-input"
+              placeholder="tucorreo@ejemplo.com"
+              class="w-full px-4 py-3 rounded-xl bg-slate-800/50 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition"
             />
           </div>
           <div class="flex flex-col">
-            <label for="message" class="form-label">Mensaje</label>
+            <label for="message" class="text-slate-200 text-sm font-medium mb-1"
+              >Mensaje</label
+            >
             <textarea
               id="message"
               name="message"
-              rows="4"
+              rows="5"
               required
-              class="form-input resize-none"
+              placeholder="¿En qué puedo ayudarte?"
+              class="w-full px-4 py-3 rounded-xl bg-slate-800/50 text-white placeholder-slate-400 resize-none focus:outline-none focus:ring-2 focus:ring-cyan-400 transition"
             ></textarea>
           </div>
           <button
             id="btnSend"
             type="submit"
-            class="btn-primary self-center mt-4 w-48"
+            class="btn-primary self-center mt-2 w-48"
           >
             <i class="fa-solid fa-paper-plane mr-2"></i>Enviar mensaje
           </button>
         </form>
       </div>
-      <p class="mt-12 text-center text-sm text-slate-400">
-        También me encuentras en&nbsp;
-        <a
-          href="https://www.linkedin.com/in/brandon-ocampo-desarrollador/"
-          target="_blank"
-          class="text-cyan-400 hover:underline"
-          >LinkedIn</a
-        >.
-      </p>
     </section>
 
     <!-- ===== FOOTER ===== -->
     <footer class="py-6 text-center text-xs bg-slate-950 text-slate-500">
-      © 2025 — Brandon Ocampo. Hecho con <i class="fa-solid fa-code mx-1"></i> y
-      café.
+      © 2025 — Brandon Ocampo
     </footer>
 
     <!-- JS local -->
