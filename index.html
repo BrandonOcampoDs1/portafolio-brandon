@@ -1,241 +1,553 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-<meta charset="utf-8" />
-<title>Brandon Ocampo – Portafolio</title>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+  <head>
+    <meta charset="utf-8" />
+    <title>Brandon Ocampo - Portafolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-3gJwYp+NvJpc/JJQqqpVIvF0uYkAu5qU9M4RXdz3EMY="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      integrity="sha512-dEgKqkXX2E6USilMh4D9Fzj6yE4D8YqK4Rch3ZrEiFtz10qs84v2npL8gfrX2tPl0c3Qiv/fNMM+tWsyKhpKA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
 
-<!-- Tailwind vía CDN -->
-<script src="https://cdn.tailwindcss.com"></script>
+  <body class="bg-slate-950 text-white scroll-smooth">
+    <div
+      id="introOverlay"
+      class="fixed inset-0 z-[9999] flex items-center justify-center bg-black/80"
+    >
+      <!-- Background (can be replaced with video or image) -->
+      <div class="absolute inset-0 overflow-hidden">
+        <img
+          src="https://source.unsplash.com/1600x900/?technology,futuristic"
+          alt="Background"
+          class="w-full h-full object-cover blur-lg scale-110 opacity-60"
+        />
+      </div>
 
-<!-- jQuery vía CDN -->
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"
-        integrity="sha256-3gJwYp+NvJpc/JJQqqpVIvF0uYkAu5qU9M4RXdz3EMY="
-        crossorigin="anonymous"></script>
-
-<!-- EmailJS -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-
-<!-- Font Awesome -->
-<link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    integrity="sha512-dEgKqkXX2E6USilMh4D9Fzj6yE4D8YqK4Rch3ZrEiFtz10qs84v2npL8gfrX2tPl0c3Qiv/fNMM+tWsyKhpKA=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer" />
-
-<!-- Hoja de estilos local -->
-<link rel="stylesheet" href="css/style.css" />
-</head>
-
-<body class="bg-slate-950 text-white scroll-smooth">
-
-<!-- ===== Intro Overlay (Split‑Screen) ===== -->
-<div id="introOverlay" class="fixed inset-0 flex z-[9999]">
-<!-- Left panel -->
-<div class="flex-1 bg-slate-900/70 backdrop-blur-sm flex flex-col items-center justify-center gap-8 intro-left overflow-hidden relative">
-    <h2 class="text-3xl font-bold tracking-tight animate-slide-in-left">¡Hablemos!</h2>
-    <div class="flex gap-6">
-    <a href="https://wa.me/573004540574" target="_blank" class="icon-btn whatsapp animate-bounce-in">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
-    <a href="https://t.me/TUUSUARIO" target="_blank" class="icon-btn telegram animate-bounce-in" style="animation-delay: 0.15s">
-        <i class="fa-brands fa-telegram"></i>
-    </a>
-    <a href="#contact" class="icon-btn email animate-bounce-in" style="animation-delay: 0.3s">
-        <i class="fa-solid fa-envelope"></i>
-    </a>
+      <!-- Frosted glass card -->
+      <div
+        class="relative z-10 backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl p-10 text-center max-w-md mx-auto shadow-2xl animate-fade-in-up"
+      >
+        <h2
+          class="text-4xl font-bold text-white mb-6 tracking-wide drop-shadow"
+        >
+          Desarrollador Full Stack Php
+        </h2>
+        <div class="flex justify-center gap-6 mb-8">
+          <a
+            href="https://wa.me/573004540574"
+            target="_blank"
+            class="contact-icon whatsapp"
+          >
+            <img src="assets/wpp.png" alt="WhatsApp" class="icon-img" />
+          </a>
+          <a
+            href="https://t.me/+573004540574"
+            target="_blank"
+            class="contact-icon telegram"
+          >
+            <img src="assets/telegrama.png" alt="Telegram" class="icon-img" />
+          </a>
+          <a href="#contact" class="contact-icon email">
+            <img src="assets/gmail.png" alt="Gmail" class="icon-img" />
+          </a>
+        </div>
+        <button id="skipIntro" class="btn-glow">Entrar al sitio</button>
+      </div>
     </div>
-    <button id="skipIntro" class="mt-6 btn-outline animate-fade-in">Entrar al sitio</button>
-</div>
 
-<!-- Right panel -->
-<div class="flex-1 bg-gradient-to-br from-cyan-500/40 to-fuchsia-600/40 intro-right"></div>
-</div>
+    <div
+      id="fab"
+      class="fixed bottom-6 right-6 flex flex-col gap-3 z-50 opacity-0 pointer-events-none"
+    >
+      <a
+        href="https://wa.me/573004540574"
+        target="_blank"
+        class="fab-icon whatsapp"
+      >
+        <img src="assets/wpp.png" alt="WhatsApp" class="icon-img" />
+      </a>
+      <a
+        href="https://t.me/TUUSUARIO"
+        target="_blank"
+        class="fab-icon telegram"
+      >
+        <img src="assets/telegrama.png" alt="Telegram" class="icon-img" />
+      </a>
+      <a href="#contact" class="fab-icon email">
+        <img src="assets/gmail.png" alt="Gmail" class="icon-img" />
+      </a>
+    </div>
 
-<!-- ===== FAB Contacto flotante ===== -->
-<div id="fab" class="fixed bottom-6 right-6 flex flex-col gap-3 z-50 opacity-0 pointer-events-none">
-<a href="https://wa.me/573004540574" target="_blank" class="fab-icon whatsapp">
-    <i class="fa-brands fa-whatsapp"></i>
-</a>
-<a href="https://t.me/TUUSUARIO" target="_blank" class="fab-icon telegram">
-    <i class="fa-brands fa-telegram"></i>
-</a>
-<a href="#contact" class="fab-icon email">
-    <i class="fa-solid fa-envelope"></i>
-</a>
-</div>
+    <!-- ===== NAVBAR ===== -->
+    <header class="fixed inset-x-0 top-0 z-50 backdrop-blur-sm">
+      <nav
+        class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4"
+      >
+        <h1 class="text-xl font-bold tracking-wide">
+          <a href="#hero" class="hover:text-cyan-400 transition">
+            Brandon<strong class="text-cyan-400">.</strong>
+          </a>
+        </h1>
+        <ul
+          id="mainNav"
+          class="hidden md:flex gap-8 text-sm uppercase font-medium"
+        >
+          <li><a href="#about" class="nav-link">Sobre mí</a></li>
+          <li><a href="#experience" class="nav-link">Experiencia</a></li>
+          <li><a href="#contact" class="nav-link">Contacto</a></li>
+        </ul>
+        <button
+          id="burger"
+          class="md:hidden text-xl focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded-lg p-2"
+        >
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </nav>
 
-<!-- ===== NAVBAR ===== -->
-<header class="fixed inset-x-0 top-0 z-50 backdrop-blur-sm">
-<nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-    <h1 class="text-xl font-bold tracking-wide">
-    <a href="#hero" class="hover:text-cyan-400 transition">
-        Brandon<strong class="text-cyan-400">.</strong>
-    </a>
-    </h1>
-    <ul id="mainNav" class="hidden md:flex gap-8 text-sm uppercase font-medium">
-    <li><a href="#about" class="nav-link">Sobre mí</a></li>
-    <li><a href="#skills" class="nav-link">Habilidades</a></li>
-    <li><a href="#experience" class="nav-link">Experiencia</a></li>
-    <li><a href="#contact" class="nav-link">Contacto</a></li>
-    </ul>
-    <button id="burger" class="md:hidden text-xl focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded-lg p-2">
-    <i class="fa-solid fa-bars"></i>
-    </button>
-</nav>
+      <ul
+        id="mobileMenu"
+        class="hidden flex-col gap-6 bg-slate-900 text-center py-6 md:hidden"
+      >
+        <li><a href="#about" class="nav-link block">Sobre mí</a></li>
+        <li><a href="#skills" class="nav-link block">Habilidades</a></li>
+        <li><a href="#experience" class="nav-link block">Experiencia</a></li>
+        <li><a href="#contact" class="nav-link block">Contacto</a></li>
+      </ul>
+    </header>
 
-<ul id="mobileMenu" class="hidden flex-col gap-6 bg-slate-900 text-center py-6 md:hidden">
-    <li><a href="#about" class="nav-link block">Sobre mí</a></li>
-    <li><a href="#skills" class="nav-link block">Habilidades</a></li>
-    <li><a href="#experience" class="nav-link block">Experiencia</a></li>
-    <li><a href="#contact" class="nav-link block">Contacto</a></li>
-</ul>
-</header>
-
-<!-- ===== HERO ===== -->
-<section id="hero" class="relative flex flex-col items-center justify-center text-center min-h-screen px-6 pt-24 overflow-hidden">
-<div class="absolute inset-0 hero-bg"></div>
-<img src="assets/BrandonOcampoDesarrollador.jpeg" alt="Brandon Ocampo" class="relative w-40 h-40 rounded-full ring-4 ring-cyan-400 object-cover mb-6 animate-fade-in shadow-lg shadow-cyan-500/30" />
-<h2 class="text-4xl sm:text-5xl font-extrabold mb-4 tracking-tight animate-slide-in-down">Brandon Ocampo</h2>
-<p class="max-w-xl text-lg sm:text-xl text-slate-300 mb-8 animate-fade-in" style="animation-delay: .3s">
-    Desarrollador Web <span class="text-cyan-400 font-semibold">full‑stack PHP / Laravel</span><br />
-    especializado en e‑commerce, integraciones y experiencias de usuario.
-</p>
-<div class="flex flex-wrap justify-center gap-4 animate-fade-in" style="animation-delay:.6s">
-    <button class="btn_b liquid">
-      <span>Liquid Fill</span>
-    </button>  
-
-    <a href="https://wa.me/573004540574" target="_blank" class="btn-custom group">
-      <span>WhatsApp</span>
-      <img src="assets/wpp.png" alt="WhatsApp" class="icon-img" />
-    </a>
-
-    <a href="https://t.me/TUUSUARIO" target="_blank" class="btn-custom group">
-      <span>Telegram</span>
-      <img src="assets/telegrama.png" alt="Telegram" class="icon-img" />
-    </a>
-    <a href="mailto:brandonocampods1@gmail.com" class="btn-custom group">
-      <span>Email</span>
-      <img src="assets/gmail.png" alt="Gmail" class="icon-img" />
-    </a>
-    <a href="assets/HV-BRANDONOCAMPO-2025.pdf" download class="btn-custom group">
-      <span>Descargar CV</span>
-      <img src="assets/descargar.png" alt="CV" class="icon-img" />
-    </a>
-</div>
-</section>
-
-<!-- ===== ABOUT ===== -->
-<section id="about" class="section">
-<h3 class="section-title">Sobre mí</h3>
-<p class="leading-relaxed max-w-3xl mx-auto">
-    Desarrollador web con más de 4 años de experiencia creando soluciones digitales a la medida.
-    Amante de los retos, las metodologías ágiles y la mejora continua. <br />
-    Fan de PHP, Laravel, MySQL y las integraciones para que cada proyecto <span class="text-cyan-400">simplemente funcione</span>.
-</p>
-</section>
-
-<!-- ===== SKILLS ===== -->
-<section id="skills" class="section bg-gradient-to-b from-slate-900 to-slate-950">
-<h3 class="section-title">Habilidades técnicas</h3>
-<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-    <div class="skill-card"><i class="fab fa-php"></i><span>PHP 8.x</span></div>
-    <div class="skill-card"><i class="fa-solid fa-leaf"></i><span>Laravel</span></div>
-    <div class="skill-card"><i class="fa-solid fa-database"></i><span>MySQL / PostgreSQL</span></div>
-    <div class="skill-card"><i class="fab fa-js"></i><span>JavaScript / jQuery</span></div>
-    <div class="skill-card"><i class="fab fa-shopify"></i><span>Shopify</span></div>
-    <div class="skill-card"><i class="fab fa-wordpress"></i><span>WordPress</span></div>
-    <div class="skill-card"><i class="fa-solid fa-cloud"></i><span>APIs & Integraciones</span></div>
-    <div class="skill-card"><i class="fa-solid fa-rocket"></i><span>Scrum / QA</span></div>
-</div>
-</section>
-
-<!-- ===== EXPERIENCE ===== -->
-<section id="experience" class="section">
-<h3 class="section-title">Experiencia laboral</h3>
-<ol class="relative border-l border-slate-700 max-w-3xl mx-auto">
-    <li class="timeline-item">
-    <span class="timeline-dot"></span>
-    <time class="timeline-date">Dic 2024 – Actual</time>
-    <h4 class="timeline-title">Webcreativa S.A.S.</h4>
-    <p class="timeline-text">Desarrollo end‑to‑end de plataformas web y e‑commerce (PHP, Laravel, Shopify, APIs).</p>
-    </li>
-    <li class="timeline-item">
-    <span class="timeline-dot"></span>
-    <time class="timeline-date">Feb 2024 – Dic 2024</time>
-    <h4 class="timeline-title">Fenixpuntonet</h4>
-    <p class="timeline-text">Proyectos completos en Laravel / Yii2 y creación de tiendas en Shopify y WordPress.</p>
-    </li>
-    <li class="timeline-item">
-    <span class="timeline-dot"></span>
-    <time class="timeline-date">Ago 2022 – May 2023</time>
-    <h4 class="timeline-title">Konecta</h4>
-    <p class="timeline-text">Analista de desarrollo en PHP / Yii, QA y despliegues con Git & JIRA (SCRUM).</p>
-    </li>
-    <li class="timeline-item">
-    <span class="timeline-dot"></span>
-    <time class="timeline-date">Sep 2020 – Jun 2022</time>
-    <h4 class="timeline-title">Procofornas S.A.</h4>
-    <p class="timeline-text">Dos sistemas escalables full‑stack en PHP / Laravel; soporte integral a la empresa.</p>
-    </li>
-</ol>
-</section>
-
-<!-- ===== CONTACT ===== -->
-<section id="contact" class="section bg-gradient-to-b from-slate-900 to-slate-950">
-<h3 class="section-title">Contacto</h3>
-<div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center px-4">
-    <!-- Columna izquierda -->
-    <div class="flex flex-col items-center text-center md:text-left md:items-start gap-6 animate-slide-in-left">
-    <img src="assets/BrandonOcampoDesarrollador.jpeg" alt="Brandon Ocampo" class="w-40 h-40 rounded-full object-cover ring-4 ring-cyan-400 shadow-xl" />
-    <p class="text-slate-300 leading-relaxed">
-        Si tienes un proyecto en mente, una vacante o quieres conectar, estoy disponible para colaborar.
-    </p>
-    <div class="flex flex-wrap gap-4 justify-center md:justify-start">
-        <a href="https://wa.me/573004540574" target="_blank" class="btn-primary">
-        <i class="fa-brands fa-whatsapp mr-2"></i>WhatsApp
+    <!-- ===== HERO ===== -->
+    <section
+      id="hero"
+      class="relative flex flex-col items-center justify-center text-center min-h-screen px-6 pt-2 overflow-hidden"
+    >
+      <div class="absolute inset-0 hero-bg"></div>
+      <img
+        src="assets/BrandonOcampoDesarrollador.jpeg"
+        alt="Brandon Ocampo"
+        class="relative w-40 h-40 rounded-full ring-4 ring-cyan-400 object-cover mb-6 animate-fade-in shadow-lg shadow-cyan-500/30"
+      />
+      <h2
+        class="text-4xl sm:text-5xl font-extrabold mb-4 tracking-tight animate-slide-in-down"
+      >
+        Brandon Ocampo
+      </h2>
+      <p
+        class="max-w-xl text-lg sm:text-xl text-slate-300 mb-8 animate-fade-in"
+        style="animation-delay: 0.3s"
+      >
+        Desarrollador Web
+        <span class="text-cyan-400 font-semibold">full‑stack PHP / Laravel</span
+        ><br />
+        especializado en e‑commerce, integraciones y experiencias de usuario.
+      </p>
+      <div class="btn_info">
+        <a
+          href="https://wa.me/573004540574"
+          target="_blank"
+          class="btn_b liquid"
+        >
+          <span>WhatsApp</span>
+          <img src="assets/wpp.png" alt="WhatsApp" class="icon-img" />
         </a>
-        <a href="https://t.me/TUUSUARIO" target="_blank" class="btn-outline">
-        <i class="fa-brands fa-telegram mr-2"></i>Telegram
+
+        <a
+          href="https://t.me/+573004540574"
+          target="_blank"
+          class="btn_b liquid"
+        >
+          <span>Telegram</span>
+          <img src="assets/telegrama.png" alt="Telegram" class="icon-img" />
         </a>
-        <a href="mailto:brandonocampods1@gmail.com" class="btn-outline">
-        <i class="fa-solid fa-envelope mr-2"></i>Email
+
+        <a
+          href="mailto:brandonocampods1@gmail.com"
+          target="_blank"
+          class="btn_b liquid"
+        >
+          <span>Email</span>
+          <img src="assets/gmail.png" alt="Gmail" class="icon-img" />
         </a>
-    </div>
+
+        <a
+          href="assets/HV-BRANDONOCAMPO-2025.pdf"
+          download
+          class="btn_b liquid"
+        >
+          <span>Descargar CV</span>
+          <img src="assets/descargar.png" alt="CV" class="icon-img" />
+        </a>
+      </div>
+      <div class="pt-4">
+        <p
+          class="max-w-xl text-lg sm:text-xl text-slate-300 mb-8 animate-fade-in"
+          style="animation-delay: 0.3s"
+        >
+          Correo:
+          <span class="text-cyan-400 font-semibold"
+            >brandonocampods1@gmail.com</span
+          >
+          <br />
+          Celular:
+          <span class="text-cyan-400 font-semibold">+57 300 454 0574</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about" class="section bg-slate-900 text-white">
+      <div
+        class="max-w-5xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-10 items-center"
+      >
+        <div>
+          <h3 class="section-title mb-6 text-3xl font-bold text-cyan-400">
+            Sobre mí
+          </h3>
+          <p class="text-slate-300 leading-relaxed text-lg">
+            Desarrollador web con más de
+            <strong class="text-white">4 años de experiencia</strong> creando
+            soluciones digitales a la medida. Me apasiona profundamente la
+            tecnología y disfruto resolver problemas complejos con creatividad,
+            análisis y compromiso. Gracias a mi experiencia, me desenvuelvo con
+            seguridad en todo tipo de proyectos, adaptándome fácilmente a nuevos
+            retos y entornos.
+          </p>
+          <p class="text-slate-300 leading-relaxed text-lg mt-4">
+            Amante de los desafíos, las metodologías ágiles y la mejora
+            continua. Siempre estoy aportando ideas, optimizando procesos y
+            enfocándome en entregar soluciones que realmente aporten valor. Fan
+            de
+            <span class="font-semibold text-white">PHP, Laravel, MySQL</span> y
+            las integraciones para que todo
+            <span class="text-cyan-400 font-medium">simplemente funcione</span>.
+          </p>
+        </div>
+        <!-- Columna derecha con íconos de tecnologías -->
+        <div class="grid grid-cols-3 sm:grid-cols-4 gap-6 justify-items-center">
+          <!-- PHP -->
+          <div class="flex flex-col items-center text-center">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg"
+              alt="PHP"
+              class="w-12 h-12"
+            />
+            <span class="text-sm mt-2">PHP</span>
+          </div>
+
+          <!-- Laravel -->
+          <div class="flex flex-col items-center text-center">
+            <img
+              src="https://laravel.com/img/logomark.min.svg"
+              alt="Laravel"
+              class="w-12 h-12"
+            />
+            <span class="text-sm mt-2">Laravel</span>
+          </div>
+
+          <!-- HTML -->
+          <div class="flex flex-col items-center text-center">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+              alt="HTML"
+              class="w-12 h-12"
+            />
+            <span class="text-sm mt-2">HTML</span>
+          </div>
+
+          <!-- CSS -->
+          <div class="flex flex-col items-center text-center">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+              alt="CSS"
+              class="w-12 h-12"
+            />
+            <span class="text-sm mt-2">CSS</span>
+          </div>
+
+          <!-- JavaScript -->
+          <div class="flex flex-col items-center text-center">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+              alt="JavaScript"
+              class="w-12 h-12"
+            />
+            <span class="text-sm mt-2">JS</span>
+          </div>
+
+          <!-- Vue.js -->
+          <div class="flex flex-col items-center text-center">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg"
+              alt="Vue.js"
+              class="w-12 h-12"
+            />
+            <span class="text-sm mt-2">Vue</span>
+          </div>
+
+          <!-- MySQL -->
+          <div class="flex flex-col items-center text-center">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
+              alt="MySQL"
+              class="w-12 h-12"
+            />
+            <span class="text-sm mt-2">MySQL</span>
+          </div>
+
+          <!-- PostgreSQL -->
+          <div class="flex flex-col items-center text-center">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
+              alt="PostgreSQL"
+              class="w-12 h-12"
+            />
+            <span class="text-sm mt-2">PostgreSQL</span>
+          </div>
+
+          <!-- Git -->
+          <div class="flex flex-col items-center text-center">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+              alt="Git"
+              class="w-12 h-12"
+            />
+            <span class="text-sm mt-2">Git</span>
+          </div>
+
+          <!-- GitHub -->
+          <div class="flex flex-col items-center text-center">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+              alt="GitHub"
+              class="w-12 h-12 bg-white rounded-full"
+            />
+            <span class="text-sm mt-2">GitHub</span>
+          </div>
+
+          <!-- WordPress -->
+          <div class="flex flex-col items-center text-center">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg"
+              alt="WordPress"
+              class="w-12 h-12"
+            />
+            <span class="text-sm mt-2">WP</span>
+          </div>
+
+          <!-- Jenkins -->
+          <div class="flex flex-col items-center text-center">
+            <img
+              src="https://www.jenkins.io/images/logos/jenkins/jenkins.svg"
+              alt="Jenkins"
+              class="w-12 h-12"
+            />
+            <span class="text-sm mt-2">Jenkins</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EXPERIENCE ===== -->
+<section id="experience" class="section bg-slate-900 text-white">
+  <h3 class="section-title text-3xl font-bold text-center mb-12 text-cyan-400">
+    Experiencia laboral
+  </h3>
+
+  <div class="max-w-7xl mx-auto grid gap-12 lg:grid-cols-2">
+    <!-- Webcreativa -->
+    <div class="md:grid md:grid-cols-3 gap-6 items-start">
+      <div class="col-span-1">
+        <h4 class="text-xl font-semibold">Webcreativa S.A.S.</h4>
+        <p class="text-sm text-slate-400">Dic 2024 – Actual</p>
+        <p class="mt-2 text-slate-300 text-sm">
+          Desarrollo de plataformas a medida con Laravel, Shopify y APIs REST. Lideré proyectos de alto tráfico en producción.
+        </p>
+        <ul class="mt-2 text-sm text-cyan-300 list-disc list-inside">
+          <li>Laravel, PHP, MySQL</li>
+          <li>Shopify (Liquid, Admin API)</li>
+          <li>Integraciones de pago y logística</li>
+        </ul>
+      </div>
+      <div class="col-span-2">
+        <img src="assets/nodac_proyecto.png" alt="Proyecto Webcreativa" class="rounded-xl shadow-lg w-full" />
+      </div>
     </div>
 
-    <!-- Formulario -->
-    <form id="contactForm" class="flex flex-col gap-4 animate-fade-in">
-    <div class="flex flex-col">
-        <label for="name" class="form-label">Nombre</label>
-        <input id="name" name="name" type="text" required class="form-input" />
+    <!-- Fenixpuntonet -->
+    <div class="md:grid md:grid-cols-3 gap-6 items-start">
+      <div class="col-span-1">
+        <h4 class="text-xl font-semibold">Fenixpuntonet</h4>
+        <p class="text-sm text-slate-400">Feb 2024 – Dic 2024</p>
+        <p class="mt-2 text-slate-300 text-sm">
+          Desarrollo full-stack en Laravel/Yii2. Implementación de e‑commerce en WordPress y Shopify para múltiples marcas.
+        </p>
+        <ul class="mt-2 text-sm text-cyan-300 list-disc list-inside">
+          <li>Laravel, Yii2, Vue.js</li>
+          <li>Shopify, WordPress</li>
+          <li>Módulos personalizados y despliegues</li>
+        </ul>
+      </div>
+      <div class="col-span-2">
+        <img src="assets/masterbaul_proyecto.png" alt="Proyecto Fenix" class="rounded-xl shadow-lg w-full" />
+      </div>
     </div>
-    <div class="flex flex-col">
-        <label for="email" class="form-label">Correo</label>
-        <input id="email" name="email" type="email" required class="form-input" />
+
+    <!-- Konecta -->
+    <div class="md:grid md:grid-cols-3 gap-6 items-start">
+      <div class="col-span-1">
+        <h4 class="text-xl font-semibold">Konecta</h4>
+        <p class="text-sm text-slate-400">Ago 2022 – May 2023</p>
+        <p class="mt-2 text-slate-300 text-sm">
+          Analista de desarrollo participando en mantenimiento y evolución de sistemas internos en PHP/Yii. Involucrado en QA y despliegues bajo metodologías ágiles.
+        </p>
+        <ul class="mt-2 text-sm text-cyan-300 list-disc list-inside">
+          <li>PHP, Yii2, DB2</li>
+          <li>SCRUM, JIRA, QA</li>
+          <li>Git, Bitbucket</li>
+        </ul>
+      </div>
+      <div class="col-span-2">
+        <img src="assets/konecta_proyecto.png" alt="Proyecto Konecta" class="rounded-xl shadow-lg w-full" />
+      </div>
     </div>
-    <div class="flex flex-col">
-        <label for="message" class="form-label">Mensaje</label>
-        <textarea id="message" name="message" rows="4" required class="form-input resize-none"></textarea>
+
+    <!-- Procoformas -->
+    <div class="md:grid md:grid-cols-3 gap-6 items-start">
+      <div class="col-span-1">
+        <h4 class="text-xl font-semibold">Procoformas S.A.</h4>
+        <p class="text-sm text-slate-400">Sep 2020 – Jun 2022</p>
+        <p class="mt-2 text-slate-300 text-sm">
+          Desarrollo full-stack de dos sistemas empresariales hechos completamente desde cero, gestionando de forma individual todo el ciclo de producción: análisis, desarrollo, despliegue y soporte.
+        </p>
+        <ul class="mt-2 text-sm text-cyan-300 list-disc list-inside">
+          <li>PHP, Laravel, MySQL</li>
+          <li>Git, cPanel</li>
+          <li>Desarrollo autónomo y soporte continuo</li>
+        </ul>
+      </div>
+      <div class="col-span-2">
+        <img src="assets/procoformas_proyecto.png" alt="Proyecto Procoformas" class="rounded-xl shadow-lg w-full" />
+      </div>
     </div>
-    <button id="btnSend" type="submit" class="btn-primary self-center mt-4 w-48">
-        <i class="fa-solid fa-paper-plane mr-2"></i>Enviar mensaje
-    </button>
-    </form>
-</div>
-<p class="mt-12 text-center text-sm text-slate-400">
-    También me encuentras en&nbsp;
-    <a href="https://www.linkedin.com/in/brandon-ocampo-desarrollador/" target="_blank" class="text-cyan-400 hover:underline">LinkedIn</a>.
-</p>
+  </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
-<footer class="py-6 text-center text-xs bg-slate-950 text-slate-500">
-© 2025 — Brandon Ocampo. Hecho con <i class="fa-solid fa-code mx-1"></i> y café.
-</footer>
+    <!-- ===== CONTACT ===== -->
+    <section
+      id="contact"
+      class="section bg-gradient-to-b from-slate-900 to-slate-950"
+    >
+      <h3 class="section-title">Contacto</h3>
+      <div
+        class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center px-4"
+      >
+        <!-- Columna izquierda -->
+        <div
+          class="flex flex-col items-center text-center md:text-left md:items-start gap-6 animate-slide-in-left"
+        >
+          <img
+            src="assets/BrandonOcampoDesarrollador.jpeg"
+            alt="Brandon Ocampo"
+            class="w-40 h-40 rounded-full object-cover ring-4 ring-cyan-400 shadow-xl"
+          />
+          <p class="text-slate-300 leading-relaxed">
+            Si tienes un proyecto en mente, una vacante o quieres conectar,
+            estoy disponible para colaborar.
+          </p>
+          <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+            <a
+              href="https://wa.me/573004540574"
+              target="_blank"
+              class="btn-primary"
+            >
+              <i class="fa-brands fa-whatsapp mr-2"></i>WhatsApp
+            </a>
+            <a
+              href="https://t.me/TUUSUARIO"
+              target="_blank"
+              class="btn-outline"
+            >
+              <i class="fa-brands fa-telegram mr-2"></i>Telegram
+            </a>
+            <a href="mailto:brandonocampods1@gmail.com" class="btn-outline">
+              <i class="fa-solid fa-envelope mr-2"></i>Email
+            </a>
+          </div>
+        </div>
 
-<!-- JS local -->
-<script src="js/script.js"></script>
-</body>
+        <!-- Formulario -->
+        <form id="contactForm" class="flex flex-col gap-4 animate-fade-in">
+          <div class="flex flex-col">
+            <label for="name" class="form-label">Nombre</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              required
+              class="form-input"
+            />
+          </div>
+          <div class="flex flex-col">
+            <label for="email" class="form-label">Correo</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              class="form-input"
+            />
+          </div>
+          <div class="flex flex-col">
+            <label for="message" class="form-label">Mensaje</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              required
+              class="form-input resize-none"
+            ></textarea>
+          </div>
+          <button
+            id="btnSend"
+            type="submit"
+            class="btn-primary self-center mt-4 w-48"
+          >
+            <i class="fa-solid fa-paper-plane mr-2"></i>Enviar mensaje
+          </button>
+        </form>
+      </div>
+      <p class="mt-12 text-center text-sm text-slate-400">
+        También me encuentras en&nbsp;
+        <a
+          href="https://www.linkedin.com/in/brandon-ocampo-desarrollador/"
+          target="_blank"
+          class="text-cyan-400 hover:underline"
+          >LinkedIn</a
+        >.
+      </p>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="py-6 text-center text-xs bg-slate-950 text-slate-500">
+      © 2025 — Brandon Ocampo. Hecho con <i class="fa-solid fa-code mx-1"></i> y
+      café.
+    </footer>
+
+    <!-- JS local -->
+    <script src="js/script.js"></script>
+  </body>
 </html>
